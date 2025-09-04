@@ -7,4 +7,8 @@ import dev.dead.mssc_brewery.web.model.BeerDto;
 public interface BeerService {
   BeerDto getBearById(UUID beerId);
 
+  BeerDto createBeer(BeerDto beerDto);
+
+  void updateBeer(UUID beerId, BeerDto beerDto);
+
 }
