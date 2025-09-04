@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.dead.mssc_brewery.web.model.BeerDto;
 import dev.dead.mssc_brewery.web.model.v2.BeerDtoV2;
-import dev.dead.mssc_brewery.web.services.BeerService;
-import dev.dead.mssc_brewery.web.services.BeerServiceImpl;
 import dev.dead.mssc_brewery.web.services.v2.BeerServiceV2;
 
 import java.util.UUID;
