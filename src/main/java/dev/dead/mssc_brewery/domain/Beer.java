@@ -1,5 +1,6 @@
 package dev.dead.mssc_brewery.domain;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 import dev.dead.mssc_brewery.web.model.v2.BeerStyleEnum;
@@ -26,4 +27,7 @@ public class Beer {
   private BeerStyleEnum beerStyle;
   @Positive
   private long upc;
+
+  private Timestamp createdAt;
+  private Timestamp lastModifiedAt;
 }

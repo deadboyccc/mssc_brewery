@@ -1,5 +1,6 @@
 package dev.dead.mssc_brewery.web.model;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import jakarta.validation.constraints.NotBlank;
@@ -23,5 +24,7 @@ public class BeerDto {
   private String beerStyle;
   @Positive
   private long upc;
+  private OffsetDateTime createdAt;
+  private OffsetDateTime lastModifiedAt;
 
 }
