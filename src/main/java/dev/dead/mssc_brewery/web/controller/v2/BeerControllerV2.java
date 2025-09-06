@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.dead.mssc_brewery.web.model.BeerDto;
 import dev.dead.mssc_brewery.web.model.v2.BeerDtoV2;
 import dev.dead.mssc_brewery.web.services.v2.BeerServiceV2;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Valid;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +42,7 @@ public class BeerControllerV2 {
   }
 
   @PostMapping
-  public ResponseEntity<BeerDtoV2> createBear(@RequestBody BeerDtoV2 beerDto) {
+  public ResponseEntity<BeerDtoV2> createBear(@Valid @RequestBody BeerDtoV2 beerDto) {
     BeerDtoV2 createdBeer = beerServiceV2.createBeer(beerDto);
     HttpHeaders httpHeaders = new HttpHeaders();
     // TODO add hostname full url
@@ -47,7 +52,8 @@ public class BeerControllerV2 {
   }
 
   @PutMapping("/{beerId}")
-  public ResponseEntity<BeerDto> updateBeer(@PathVariable("beerId") UUID beerId, @RequestBody BeerDtoV2 beerDto) {
+  public ResponseEntity<BeerDto> updateBeer(@PathVariable("beerId") UUID beerId,
+      @Valid @RequestBody BeerDtoV2 beerDto) {
     beerServiceV2.updateBeer(beerId, beerDto);
     return new ResponseEntity<>(
         HttpStatus.NO_CONTENT);
