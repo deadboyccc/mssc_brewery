@@ -9,8 +9,6 @@ import dev.dead.mssc_brewery.web.model.CustomerDto;
 public interface CustomerMapper {
   Customer customerDtoToCustomer(CustomerDto customerDto);
 
-  CustomerDto customerDto
-
-  CustomerToCustomerDto(CustomerDto customerDto);
+  CustomerDto CustomerToCustomerDto(CustomerDto customerDto);
 
 }
